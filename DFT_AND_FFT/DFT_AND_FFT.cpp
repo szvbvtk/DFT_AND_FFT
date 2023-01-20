@@ -63,13 +63,13 @@ complex<double>* FFT(double* f, unsigned int size) {
 int main()
 {
 
-	double f[4]{1, 2, 3, 4};
+	double f[]{ 1.0, 2.0, 1.0, -1.0, 1.5 };
 
 
 
-	complex<double>* C = DFT(f, 4);
+	complex<double>* C = DFT(f, 5);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 		cout << C[i] << '\n';
 
 }
