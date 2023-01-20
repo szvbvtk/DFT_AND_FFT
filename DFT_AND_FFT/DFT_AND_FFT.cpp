@@ -25,10 +25,10 @@ complex<double>* FFT(double* f, unsigned int size) {
 	complex<double>* odd = FFT(odd_tmp, size / 2);
 	complex<double>* even = FFT(even_tmp, size / 2);
 
-	//complex<double> I(1, 0);
+
 	for (int k = 0; k < size / 2; k++) {
-		//complex<double> w = exp(-2 * M_PI * k / size * I) * odd[k];
-		complex<double> w = polar(1.0, - 2 * M_PI * k / size) * odd[k];
+		//complex<double> w = polar(1.0, - 2 * M_PI * k / size) * odd[k]; // robi to samo
+		complex<double> w = exp(complex<double>(0, -2 * M_PI * k / size)) * odd[k];
 		C[k] = even[k] + w;
 		C[k + size / 2] = even[k] - w;
 	}
